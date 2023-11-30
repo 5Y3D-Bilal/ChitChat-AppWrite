@@ -16,7 +16,6 @@ import { chatStore } from "../../state/chatsStore";
 
 const ChatSection = () => {
   const { id } = useParams();
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15];
   const user = userStore(
     (state) => state.user
   ) as Models.User<Models.Preferences>;
@@ -93,7 +92,7 @@ const ChatSection = () => {
   const deleteMessages = (id: string) => {
     databases
       .deleteDocument(DATABASE_ID, CAHTS_COLLECTION_ID, id)
-      .then((res) => {
+      .then(() => {
         chatState.deleteChat(id);
       })
       .catch((res: AppwriteException) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -17,14 +17,12 @@ import {
 } from "../config/appwriteConfig";
 import { AppwriteException, ID } from "appwrite";
 import { communityStore } from "../state/communityStore";
-import { useNavigate } from "react-router-dom";
 
 export default function CreateCommunity() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const communityState = communityStore();
-  const navigate = useNavigate()
 
   const handlesumbit = () => {
     setLoading(true);
@@ -41,7 +39,7 @@ export default function CreateCommunity() {
         setLoading(false);
         console.log(err.message);
       });
-    };
+  };
 
   return (
     <>

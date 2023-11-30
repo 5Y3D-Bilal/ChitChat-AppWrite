@@ -18,7 +18,7 @@ export const communityStore = create<States & Actions>()(
       set((state) => ({
         communities: [data, ...state.communities],
       })),
-      addCommunities :(data:Array<Models.Document>) => set((state) =>({
+      addCommunities :(data:Array<Models.Document>) => set(() =>({
         communities: data
       })) 
   }))

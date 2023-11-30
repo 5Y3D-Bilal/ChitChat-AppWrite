@@ -20,7 +20,7 @@ export const chatStore = create<States & Actions>()(
         chats: [...state.chats, data],
       })),
     addChats: (data: Array<Models.Document>) =>
-      set((state) => ({
+      set(() => ({
         chats: data,
       })),
     deleteChat: (id: string) =>
